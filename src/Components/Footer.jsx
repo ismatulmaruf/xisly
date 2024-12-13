@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -214,20 +215,17 @@ const Footer = () => {
               © 2024 Xisly. All rights reserved.
             </p>
 
-            {/* Social Links Section */}
-            <div className="footer-social-links flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center sm:justify-end mt-4 sm:mt-0">
-              <a href="#" className="text-gray-300 hover:text-white">
-                Facebook
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Twitter
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Instagram
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                LinkedIn
-              </a>
+            {/* Links Section */}
+            <div className="footer-links flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center sm:justify-end mt-4 sm:mt-0">
+              <Link to="/terms" className="text-gray-300 hover:text-white">
+                Terms of Service
+              </Link>
+              <Link
+                to="/privacy-policy"
+                className="text-gray-300 hover:text-white"
+              >
+                Privacy Policy
+              </Link>
             </div>
           </div>
         </div>

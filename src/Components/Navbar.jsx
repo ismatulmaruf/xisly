@@ -1,5 +1,17 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import {
+  FaGlobe,
+  FaUsers,
+  FaAd,
+  FaWhatsapp,
+  FaEnvelope,
+  FaImages,
+  FaFileAlt,
+  FaVideo,
+  FaRobot,
+  FaPenFancy,
+} from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,7 +99,7 @@ export default function Navbar() {
                 Blog
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/pricing"
                 className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
@@ -102,7 +114,7 @@ export default function Navbar() {
               >
                 Case Studies
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to="/contact"
@@ -117,104 +129,135 @@ export default function Navbar() {
 
       <div
         id="mega-menu-full-image-dropdown"
-        className={`mt-1 bg-white border-gray-200 shadow-md  overflow-hidden transition-all duration-500 ease-in-out ${
-          isMegaMenuOpen ? "max-h-96" : "max-h-0"
+        className={`mt-1 bg-white border border-gray-200 shadow-lg overflow-hidden transition-all duration-500 ease-in-out ${
+          isMegaMenuOpen ? "min-h-96" : "max-h-0"
         }`}
       >
-        <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500  md:grid-cols-3 md:px-6">
-          <ul className="hidden mb-4 space-y-4 md:mb-0 md:block">
-            <li>
-              <NavLink
-                to="/online-stores"
-                className="hover:underline hover:text-blue-600  transition-colors duration-200"
-              >
-                Online Stores
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/segmentation"
-                className="hover:underline hover:text-blue-600  transition-colors duration-200"
-              >
-                Segmentation
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/marketing-crm"
-                className="hover:underline hover:text-blue-600  transition-colors duration-200"
-              >
-                Marketing CRM
-              </NavLink>
-            </li>
-          </ul>
-          <ul className="mb-4 space-y-4 md:mb-0">
-            <li>
-              <NavLink
-                to="/our-blog"
-                className="hover:underline hover:text-blue-600  transition-colors duration-200"
-              >
-                Our Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/terms"
-                className="hover:underline hover:text-blue-600  transition-colors duration-200"
-              >
-                Terms & Conditions
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/license"
-                className="hover:underline hover:text-blue-600  transition-colors duration-200"
-              >
-                License
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/resources"
-                className="hover:underline hover:text-blue-600  transition-colors duration-200"
-              >
-                Resources
-              </NavLink>
-            </li>
-          </ul>
+        <div className="grid max-w-screen-xl px-6 py-6 mx-auto text-sm text-gray-600 md:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="flex items-center p-4 bg-white shadow rounded-lg hover:shadow-lg transition-shadow"
+            >
+              <div className="w-20 h-20 flex-shrink-0 flex items-center justify-center text-blue-500 text-3xl bg-gray-100 rounded-lg">
+                {service.icon}
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm mt-2">
+                  {service.description}
+                </p>
+                <a
+                  href={service.link}
+                  className="text-blue-500 text-sm font-medium mt-3 inline-block hover:underline"
+                >
+                  Read more
+                </a>
+              </div>
+            </div>
+          ))}
+
           <a
             href="#"
-            className="p-8 bg-local bg-gray-500 bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply hover:bg-blend-soft-light"
+            className="relative p-6 bg-gray-500 rounded-lg bg-cover bg-center bg-no-repeat text-white hover:opacity-90 transition-opacity"
             style={{
               backgroundImage: "url(/docs/images/dashboard-overview.png)",
             }}
           >
-            <p className="max-w-xl mb-5 font-extrabold leading-tight tracking-tight text-white">
-              Preview the new Flowbite dashboard navigation.
-            </p>
-            <button
-              type="button"
-              className="inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-white border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700"
-            >
-              Get started
-              <svg
-                className="w-3 h-3 ms-2 rtl:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
+            <div className="absolute inset-0 bg-gray-800 bg-opacity-50 rounded-lg"></div>
+            <div className="relative z-10">
+              <p className="font-extrabold text-lg leading-tight">
+                Preview the new Flowbite dashboard navigation.
+              </p>
+              <button
+                type="button"
+                className="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700"
               >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </button>
+                Get started
+                <svg
+                  className="w-4 h-4 ml-2 rtl:rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </button>
+            </div>
           </a>
         </div>
       </div>
     </nav>
   );
 }
+
+const services = [
+  {
+    title: "Site Builder",
+    description: "Domain, Hosting, Site Builder",
+    icon: <FaGlobe />,
+    link: "/services/site-builder",
+  },
+  {
+    title: "Team Manager",
+    description: "Manage your team effectively",
+    icon: <FaUsers />,
+    link: "/services/team-manager",
+  },
+  {
+    title: "Ads Manager",
+    description: "Newspaper, Meta, Google ads management",
+    icon: <FaAd />,
+    link: "/services/ads-manager",
+  },
+  {
+    title: "WhatsApp Manager",
+    description: "Streamline communication on WhatsApp",
+    icon: <FaWhatsapp />,
+    link: "/services/whatsapp-manager",
+  },
+  {
+    title: "Email Sender",
+    description: "Automate and manage email campaigns",
+    icon: <FaEnvelope />,
+    link: "/services/email-sender",
+  },
+  {
+    title: "Image Generator",
+    description: "Generate high-quality images effortlessly",
+    icon: <FaImages />,
+    link: "/services/image-generator",
+  },
+  {
+    title: "Text Generator",
+    description: "Create engaging and unique content",
+    icon: <FaFileAlt />,
+    link: "/services/text-generator",
+  },
+  {
+    title: "Video Generator",
+    description: "Produce videos with AI assistance",
+    icon: <FaVideo />,
+    link: "/services/video-generator",
+  },
+  {
+    title: "AI Chat",
+    description: "Enhance communication with AI chat solutions",
+    icon: <FaRobot />,
+    link: "/services/ai-chat",
+  },
+  {
+    title: "Content Manager",
+    description: "Organize and manage your content effectively",
+    icon: <FaPenFancy />,
+    link: "/services/content-manager",
+  },
+];
